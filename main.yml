@@ -4,3 +4,4 @@
   tasks:
   - include: tasks/apt.yml
   - include: tasks/nodejs.yml
+  - include: tasks/docker.yml

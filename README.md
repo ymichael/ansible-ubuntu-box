@@ -14,6 +14,7 @@ Simple Ansible plays to configure a Ubuntu Server (14.04).
         - Installs [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page)
         - Installs [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades)
     - Nodejs (`tasks/nodejs.yml`)
+    - Docker (`tasks/docker.yml`)
 
 
 ## Background

@@ -1,0 +1,12 @@
+---
+# Install Docker
+# https://docs.docker.com/installation/ubuntulinux/
+- name: Check if docker is installed
+  command: docker -v
+  register: docker
+  ignore_errors: True
+  changed_when: False
+
+- name: Install Docker
+  shell: curl -sL https://get.docker.com/ | sudo bash -
+  when: docker.rc != 0
