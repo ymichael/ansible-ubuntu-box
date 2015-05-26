@@ -30,5 +30,10 @@ I find myself having to do the same setup each time I start a new server.
         ansible-playbook -i hosts main.yml
 
 
+## TODO
+
+- Add more tasks to install various things/dependencies
+
 ## Credits
-- [https://github.com/zenzire/ansible-bootstrap-ubuntu](https://github.com/zenzire/ansible-bootstrap-ubuntu)
+- <https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04>
+- <https://github.com/zenzire/ansible-bootstrap-ubuntu>
