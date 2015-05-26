@@ -3,6 +3,7 @@
   sudo_user: "{{ remote_user }}"
   tasks:
   - include: tasks/apt.yml
+  - include: tasks/ufw.yml
   - include: tasks/nodejs.yml
   - include: tasks/misc.yml
   - include: tasks/docker.yml

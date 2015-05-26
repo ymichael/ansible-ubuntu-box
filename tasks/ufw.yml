@@ -1,0 +1,48 @@
+# Sets up smart defaults for UFW
+# https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
+- name: Make sure UFW is installed (should be by default.)
+  sudo: yes
+  apt: state=present pkg=ufw
+
+# IPv6
+- name: Enable IPv6
+  sudo: yes
+  lineinfile:
+    dest: /etc/default/ufw
+    state: present
+    regexp: "^IPV6"
+    line: "IPV6=yes"
+- name: restart ufw
+  sudo: yes
+  ufw: state=reloaded
+
+# Default Policies
+- name: Deny all incoming traffic by default
+  sudo: yes
+  ufw:
+    policy: deny
+    direction: incoming
+- name: Allow all outgoing traffic by default
+  sudo: yes
+  ufw:
+    policy: allow
+    direction: outgoing
+- name: Allow ssh
+  sudo: yes
+  ufw: rule=allow proto=tcp port=22
+
+# Allowed connections
+- name: Allow various ports
+  sudo: yes
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  # (Edit as necessary)
+  with_items:
+  - 80  # http
+  - 443 # https
+
+- name: Ensure ufw is running
+  sudo: yes
+  ufw: state=enabled
