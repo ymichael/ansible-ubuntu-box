@@ -25,7 +25,9 @@ I find myself having to do the same setup each time I start a new server.
         // Alternatively, update your ~/.ssh/config file.
 
 5. Run the main play.
+    
 
+        // Edit to exclude/include relevant tasks.
         ansible-playbook -i hosts main.yml
 
 

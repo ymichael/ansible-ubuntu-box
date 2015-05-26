@@ -1,0 +1,24 @@
+---
+# Install nodejs v0.12
+# https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories
+- name: Check if nodejs is installed
+  command: node -v
+  register: nodejs
+  ignore_errors: True
+  changed_when: False
+
+# # Note the new setup script name for Node.js v0.12
+# curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+- name: Curl and execute setup script
+  shell: curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+  when: nodejs.rc != 0
+
+# # Then install with:
+# sudo apt-get install -y nodejs
+# Install various packages
+- name: Installs nodejs
+  sudo: yes
+  apt:
+    pkg: nodejs
+    state: present
+  when: nodejs.rc != 0
