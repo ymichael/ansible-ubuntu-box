@@ -1,0 +1,5 @@
+---
+- hosts: all
+  sudo_user: "{{ remote_user }}"
+  tasks:
+  - include: tasks/apt.yml

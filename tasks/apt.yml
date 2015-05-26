@@ -1,0 +1,18 @@
+---
+# sudo apt-get update.
+- name: Update apt-cache
+  sudo: yes
+  apt: update_cache=yes cache_valid_time=3600
+
+# sudo apt-get upgrade
+- name: Update all packages to the latest version
+  sudo: yes
+  apt: upgrade=safe
+
+# Install various packages
+- name: Installs unattended-upgrades package
+  sudo: yes
+  apt: state=present pkg={{ item }}
+  with_items:
+  - unattended-upgrades
+  - fail2ban
