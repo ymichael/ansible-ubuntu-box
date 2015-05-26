@@ -1,6 +1,20 @@
 # Ansible Plays
 Simple Ansible plays to configure a Ubuntu Server (14.04).
 
+- `newuser.yml`
+    - Creates new user
+    - Configures passwordless ssh access
+    - Adds user to sudoers
+    - Disable root ssh access
+    - Disable ssh access via passwords
+
+- `main.yml`
+    - `tasks/apt.yml`
+        - Updates and upgrades apt-cache and installed packages
+        - Installs [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page)
+        - Installs [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades)
+    -  `tasks/nodejs.yml`: Installs [nodejs](nodejs.org)
+
 
 ## Background
 I find myself having to do the same setup each time I start a new server.
