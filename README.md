@@ -1,6 +1,12 @@
 # Ansible Plays
 Simple Ansible plays to configure a Ubuntu Server (14.04).
 
+I find myself having to do the same setup each time I start a new server. Simple
+things like adding my public key to the authorized key file and configuring UFW
+to allow some ports.
+
+Here are somethings that are automated now:
+
 - Creates and sets up a new user (`newuser.yml`)
     - Creates new user
     - Configures passwordless ssh access
@@ -22,10 +28,6 @@ Simple Ansible plays to configure a Ubuntu Server (14.04).
     - Git
     - pip (Python)
 
-
-## Background
-I find myself having to do the same setup each time I start a new server.
-
 ## Usage
 
 1. Add node ip to hosts file.
@@ -46,7 +48,7 @@ I find myself having to do the same setup each time I start a new server.
         // Alternatively, update your ~/.ssh/config file.
 
 5. Run the main play.
-    
+
 
         // Edit to exclude/include relevant tasks.
         ansible-playbook -i hosts main.yml
