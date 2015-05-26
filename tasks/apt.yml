@@ -10,7 +10,7 @@
   apt: upgrade=safe
 
 # Install various packages
-- name: Installs unattended-upgrades package
+- name: Installs unattended-upgrades and fail2ban packages
   sudo: yes
   apt: state=present pkg={{ item }}
   with_items:

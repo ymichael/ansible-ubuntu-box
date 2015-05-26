@@ -8,5 +8,20 @@
   changed_when: False
 
 - name: Install Docker
+  sudo: yes
   shell: curl -sL https://get.docker.com/ | sudo bash -
   when: docker.rc != 0
+
+# We need docker-py to use the docker ansible module
+- name: Install pip (python)
+  sudo: yes
+  apt:
+    name: python-pip
+    state: present
+
+- name: Install docker-py (for ansible compatibility.)
+  sudo: yes
+  pip:
+    name: docker-py
+    state: present
+

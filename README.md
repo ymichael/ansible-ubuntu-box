@@ -15,6 +15,8 @@ Simple Ansible plays to configure a Ubuntu Server (14.04).
         - Installs [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades)
     - Nodejs (`tasks/nodejs.yml`)
     - Docker (`tasks/docker.yml`)
+    - Git
+    - pip (Python)
 
 
 ## Background
