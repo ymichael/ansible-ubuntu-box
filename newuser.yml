@@ -2,8 +2,8 @@
 # Sets up new user with sudo powers (no password)
 #
 # Example usage:
-# 
-#   $ ansible newuser.yml -u root  
+#
+#   $ ansible newuser.yml -u root
 #
 # NOTE: Also does the following the first time:
 # - Removes disables ssh access via passwords
