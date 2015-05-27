@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  sudo_user: "{{ remote_user }}"
+  sudo_user: "{{ ansible_ssh_user }}"
   tasks:
   - include: tasks/apt.yml
   - include: tasks/ufw.yml

@@ -24,4 +24,29 @@
   pip:
     name: docker-py
     state: present
+    version: 1.1.0
+
+# To avoid having to use sudo when you use the docker command, create a Unix
+# group called docker and add users to it. When the docker daemon starts, it
+# makes the ownership of the Unix socket read/writable by the docker group.
+- name: Create Unix group docker
+  sudo: yes
+  user:
+    group: docker
+    name: "{{ ansible_ssh_user }}"
+
+# Docker uses a bridge to manage container networking. By default, UFW drops all
+# forwarding traffic. As a result, for Docker to run when UFW is enabled, you
+# must set UFW's forwarding policy appropriately.
+- name: Allow forwarding in UFW
+  sudo: yes
+  lineinfile:
+    dest: /etc/default/ufw
+    state: present
+    regexp: "^DEFAULT_FORWARD_POLICY"
+    line: 'DEFAULT_FORWARD_POLICY="ACCEPT"'
+- name: restart ufw
+  sudo: yes
+  ufw: state=reloaded
+
 
