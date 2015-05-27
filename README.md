@@ -1,4 +1,4 @@
-# Ansible Plays
+# Ansible Ubuntu Box
 Simple Ansible plays to configure a Ubuntu Server (14.04).
 
 I find myself having to do the same setup each time I start a new server. Simple
